@@ -1,0 +1,10 @@
+const express = require("express")
+const app = express()
+const bodyParser = require("body-parser")
+const cors = require("cors")
+const postRouter = require("./routes/posts")
+
+app.use(cors())
+app.use(bodyParser.json())
+app.use(postRouter)
+app.listen(3000)
