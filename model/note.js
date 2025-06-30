@@ -15,9 +15,11 @@ const noteSchema = new Schema({
     author:{
         type:String,
         default:"unknown"
+    },
+    cover_photo:{
+        type:String
     }
 },{
-    timestamps:true
-})
+    timestamps:true})
 
 module.exports = model("note",noteSchema)

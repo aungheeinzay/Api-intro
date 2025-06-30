@@ -19,7 +19,7 @@ router.post("/noteCreate",[
 router.delete("/deleteNote/:noteId",noteController.deleteNote)
 
 //update note
-router.post("/updateNote/:noteId",
+router.put("/updateNote/:noteId",
   body("title")
   .isLength({max:30})
   .withMessage("title is too log")  ,noteController.updateNote)
