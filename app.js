@@ -9,6 +9,7 @@ const multer = require("multer")
 
 app.use("/uploads",express.static(path.join(__dirname,"uploads")))
 const noteRouter = require("./routes/note")
+const userRouter = require("./routes/auth")
 
 const storage = multer.diskStorage({
     destination:function(req,file,cb){
@@ -36,7 +37,12 @@ app.use(multer({storage,fileFilter:filterConfigure})
 .single("cover_photo"))
 app.use(cors())
 app.use(bodyParser.json())
+
+
 app.use(noteRouter)
+app.use(userRouter)
+
+
 mongoose.connect(process.env.MONGODB_URL).then(
     (_)=>{
         console.log("connected to mongodb")

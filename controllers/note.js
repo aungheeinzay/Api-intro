@@ -95,9 +95,11 @@ exports.updateNote=async(req,res)=>{
         const note = await Note.findById(noteId)
         note.title=title;
         note.content=content;
-        if(cover_photo){
+        if(cover_photo && note.cover_photo){
          deleteFile(note.cover_photo)  
-         note.cover_photo=cover_photo.path ;
+        }
+        if(cover_photo){
+            note.cover_photo=cover_photo.path;
         }
         
         await note.save()
