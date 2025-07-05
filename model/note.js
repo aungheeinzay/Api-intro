@@ -12,12 +12,13 @@ const noteSchema = new Schema({
         type:String,
         required:true
     },
-    author:{
-        type:String,
-        default:"unknown"
-    },
     cover_photo:{
         type:String
+    },
+    userId:{
+        type:Schema.Types.ObjectId,
+        ref:"user",
+        required: true
     }
 },{
     timestamps:true})

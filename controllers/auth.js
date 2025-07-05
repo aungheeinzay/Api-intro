@@ -49,7 +49,8 @@ exports.login=async(req,res)=>{
             return res.status(200).json({
                 message:"login success",
                 jwtToken,
-                userId:user._id
+                userId:user._id,
+                email:user.email
             })
         }else{
             return res.status(400).json({
